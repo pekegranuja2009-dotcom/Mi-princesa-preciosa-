@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Un detalle para ti 💛</title>
+<style>
+*{box-sizing:border-box}
+:root{
+  --cream:#fff9e8;
+  --paper:#fffdf6;
+  --gold:#f4c52e;
+  --yellow:#ffd84d;
+  --brown:#624817;
+  --green:#708d45;
+}
+body{
+  margin:0; min-height:100vh; background:#fff4c9;
+  font-family:Georgia,serif; color:var(--brown);
+  display:flex; justify-content:center;
+}
+.page{
+  width:min(100%,680px); min-height:100vh;
+  padding:32px 18px 42px; text-align:center;
+  background:linear-gradient(180deg,#fff8df,#fffdf3);
+  overflow:hidden;
+}
+header{margin-bottom:20px}
+h1{
+  margin:0; font-size:clamp(42px,10vw,70px);
+  letter-spacing:1px; font-weight:700;
+}
+.tagline{
+  margin:8px 0 0; font-size:15px; letter-spacing:4px;
+  text-transform:uppercase; opacity:.85;
+}
+.intro{
+  margin:20px auto 8px; max-width:430px;
+  font-size:17px; line-height:1.5;
+}
+
+/* Bouquet */
+.bouquet{
+  position:relative; width:min(430px,94vw); height:330px;
+  margin:0 auto 5px;
+}
+.stem{
+  position:absolute; bottom:32px; left:50%;
+  width:7px; height:180px; background:#78964c;
+  transform-origin:bottom; border-radius:10px;
+}
+.s1{transform:rotate(-26deg)} .s2{transform:rotate(-12deg)}
+.s3{transform:rotate(11deg)} .s4{transform:rotate(27deg)}
+.leaf{
+  position:absolute; width:65px; height:30px;
+  background:#78964c; border-radius:100% 0 100% 0;
+}
+.l1{left:95px;bottom:115px;transform:rotate(25deg)}
+.l2{right:90px;bottom:130px;transform:rotate(160deg)}
+.l3{left:145px;bottom:75px;transform:rotate(8deg)}
+.l4{right:135px;bottom:88px;transform:rotate(175deg)}
+.flower{
+  position:absolute; width:78px;height:78px;
+  border-radius:50%; display:flex;align-items:center;justify-content:center;
+}
+.flower:before{
+  content:""; position:absolute; inset:0;
+  border-radius:50%;
+  background:radial-gradient(circle at 50% 7%,var(--petal) 0 22%,transparent 23%),
+  radial-gradient(circle at 93% 35%,var(--petal) 0 22%,transparent 23%),
+  radial-gradient(circle at 72% 91%,var(--petal) 0 22%,transparent 23%),
+  radial-gradient(circle at 28% 91%,var(--petal) 0 22%,transparent 23%),
+  radial-gradient(circle at 7% 35%,var(--petal) 0 22%,transparent 23%);
+}
+.flower i{
+  position:relative; z-index:2; width:25px;height:25px;
+  border-radius:50%; background:#b98512;
+}
+.yellow{--petal:#ffd43b}.white{--petal:#fffdf8}
+.f1{left:62px;top:95px;transform:scale(.85)}
+.f2{left:175px;top:28px;transform:scale(1.05)}
+.f3{right:55px;top:105px;transform:scale(.9)}
+.f4{left:125px;top:150px;transform:scale(.72)}
+.f5{right:120px;top:155px;transform:scale(.75)}
+.small{
+  position:absolute; width:38px;height:38px;border-radius:50%;
+}
+.small:before{
+  content:"";position:absolute;inset:0;border-radius:50%;
+  background:radial-gradient(circle at 50% 4%,#fff 0 25%,transparent 26%),
+  radial-gradient(circle at 96% 50%,#fff 0 25%,transparent 26%),
+  radial-gradient(circle at 50% 96%,#fff 0 25%,transparent 26%),
+  radial-gradient(circle at 4% 50%,#fff 0 25%,transparent 26%);
+}
+.small i{position:absolute;left:12px;top:12px;width:14px;height:14px;background:#e6b51f;border-radius:50%}
+.sm1{left:35px;top:150px}.sm2{right:30px;top:150px}
+.sm3{left:85px;top:50px}.sm4{right:88px;top:52px}
+
+/* Card */
+.card-wrap{
+  width:min(500px,94vw); margin:0 auto;
+  perspective:1000px;
+}
+.card{
+  position:relative; min-height:310px; padding:38px 24px 30px;
+  background:var(--paper); border:1px solid #eadcae;
+  border-radius:22px;
+  box-shadow:0 15px 35px rgba(112,82,20,.15);
+}
+.card:before{
+  content:""; position:absolute; left:18px; right:18px; top:15px;
+  height:4px; border-radius:4px; background:#f0d36a;
+}
+.note{
+  font-size:clamp(21px,4.7vw,30px);
+  line-height:1.48; margin:25px 0 18px;
+}
+.signature{
+  font-size:18px; letter-spacing:1px; margin-top:24px;
+}
+.divider{font-size:20px;letter-spacing:8px;color:#e2b62b}
+.envelope{
+  margin:28px auto 0; width:120px;height:70px;
+  background:#f1c33d; border-radius:8px; position:relative;
+}
+.envelope:after,.envelope:before{
+  content:"";position:absolute;top:0;width:0;height:0;
+  border-style:solid; border-width:0 60px 42px 60px;
+  border-color:transparent transparent #ffe17b transparent;
+}
+.envelope:after{left:0}
+.envelope:before{transform:rotate(180deg);top:28px}
+.footer{margin-top:25px;font-size:16px;opacity:.8}
+.heart{color:#e8ad19}
+
+@media(max-width:430px){
+  .bouquet{height:285px}
+  .flower{width:68px;height:68px}
+  .f1{left:48px}.f2{left:calc(50% - 34px);top:28px}.f3{right:45px}
+  .f4{left:105px}.f5{right:105px}
+  .small{transform:scale(.8)}
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <header>
+    <h1>Un detalle para ti <span class="heart">♥</span></h1>
+    <p class="tagline">Hecho con mucho cariño</p>
+    <p class="intro">Mientras esperamos el viernes, quería dejarte este pequeño detalle.</p>
+  </header>
+
+  <section class="bouquet" aria-label="Ramo de flores amarillas y blancas">
+    <div class="stem s1"></div><div class="stem s2"></div>
+    <div class="stem s3"></div><div class="stem s4"></div>
+    <div class="leaf l1"></div><div class="leaf l2"></div>
+    <div class="leaf l3"></div><div class="leaf l4"></div>
+
+    <div class="flower yellow f1"><i></i></div>
+    <div class="flower white f2"><i></i></div>
+    <div class="flower yellow f3"><i></i></div>
+    <div class="flower white f4"><i></i></div>
+    <div class="flower yellow f5"><i></i></div>
+
+    <div class="small sm1"><i></i></div>
+    <div class="small sm2"><i></i></div>
+    <div class="small sm3"><i></i></div>
+    <div class="small sm4"><i></i></div>
+  </section>
+
+  <section class="card-wrap">
+    <div class="card">
+      <div class="divider">✦ ♥ ✦</div>
+      <div class="note">
+        De mientras que no llega el viernes te doy esto,<br>
+        ya el viernes lo completo.<br>
+        <strong>Te amo muchísimo, mi niña preciosa.</strong> ❤️
+      </div>
+      <div class="signature">Un pequeño adelanto para hacerte sonreír</div>
+      <div class="envelope" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <div class="footer">Siempre pensando en ti ♥</div>
+</main>
+</body>
+</html>

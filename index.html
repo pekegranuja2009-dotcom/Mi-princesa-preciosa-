@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Un pequeño detalle para ti 💛</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;justify-content:center;align-items:center;padding:24px 14px;background:linear-gradient(135deg,#fff8df,#fffdf4);font-family:Georgia,"Times New Roman",serif;color:#5c4215;overflow-x:hidden}
+.page{width:min(440px,100%);text-align:center;padding:30px 18px 26px}
+h1{margin:0;font-size:clamp(2.2rem,10vw,3.3rem);color:#7b5612}
+.subtitle{margin:8px 0 24px;letter-spacing:3px;font-size:.9rem;color:#8c7445}
+.garden{height:245px;position:relative;margin-bottom:10px}
+.flower{position:absolute;width:72px;height:72px;transform:rotate(8deg)}
+.flower .petals{position:absolute;inset:8px;border-radius:50%;background:currentColor;box-shadow:0 -25px 0 currentColor,25px 0 0 currentColor,0 25px 0 currentColor,-25px 0 0 currentColor}
+.flower .center{position:absolute;width:25px;height:25px;border-radius:50%;left:24px;top:24px;background:#c78c16;z-index:2}
+.yellow{color:#f7ca35}.white{color:#fffdf5;filter:drop-shadow(0 2px 2px rgba(90,60,0,.12))}
+.f1{left:3%;top:72px;transform:scale(.8) rotate(-8deg)}.f2{left:25%;top:28px;transform:scale(1.05) rotate(5deg)}.f3{right:3%;top:72px;transform:scale(.82) rotate(9deg)}.f4{left:38%;top:125px;transform:scale(.62) rotate(-5deg)}.f5{right:27%;top:25px;transform:scale(.58) rotate(8deg)}
+.stem{position:absolute;width:5px;height:105px;background:#75a55a;left:50%;top:118px;transform:rotate(-4deg);border-radius:8px;z-index:-1}
+.leaf{position:absolute;width:38px;height:20px;background:#86ad63;border-radius:100% 0 100% 0}
+.leaf.one{left:38%;top:174px;transform:rotate(25deg)}.leaf.two{left:53%;top:195px;transform:rotate(150deg)}
+.envelope-wrap{margin:8px auto 0;width:min(330px,90%);position:relative}
+.hint{margin:0 0 13px;color:#876c38;font-size:1rem}
+.envelope{width:100%;height:205px;position:relative;cursor:pointer;border:0;padding:0;background:transparent;perspective:900px;overflow:hidden;-webkit-tap-highlight-color:transparent}
+.envelope-base{position:absolute;left:0;right:0;bottom:0;height:145px;background:#e6ad22;border-radius:5px;box-shadow:0 8px 20px rgba(126,87,12,.18);overflow:hidden}
+.envelope-base:before,.envelope-base:after{content:"";position:absolute;bottom:0;width:0;height:0;border-style:solid}
+.envelope-base:before{left:0;border-width:0 165px 95px 0;border-color:transparent #d99d17 transparent transparent}
+.envelope-base:after{right:0;border-width:95px 165px 0 0;border-color:#f0bd30 transparent transparent transparent}
+.flap{position:absolute;left:0;right:0;top:60px;height:105px;background:#f2c83b;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top center;transition:transform .75s ease;z-index:3;filter:drop-shadow(0 3px 2px rgba(100,70,0,.12))}
+.seal{position:absolute;z-index:4;left:50%;top:118px;transform:translateX(-50%);width:45px;height:45px;border-radius:50%;border:3px solid #fff4c6;background:#df9f16;color:white;display:grid;place-items:center;font-size:20px;transition:opacity .4s ease}
+.letter{position:absolute;z-index:2;left:8%;right:8%;top:72px;min-height:175px;padding:23px 18px;background:#fffdf4;border-radius:5px;box-shadow:0 5px 18px rgba(92,66,21,.16);transform:translateY(145px);transition:transform .75s ease;opacity:.98}
+.letter p{margin:0;font-size:1.08rem;line-height:1.6}.letter strong{color:#b35d22}
+.envelope.open .flap{transform:rotateX(180deg);z-index:1}
+.envelope.open{overflow:visible}
+.envelope.open .seal{opacity:0}
+.envelope.open .letter{transform:translateY(-105px)}
+.footer{margin-top:22px;font-size:.92rem;color:#9a7a3d}
+.sparkle{display:inline-block;animation:float 2.5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-5px)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main class="page">
+<h1>Para mi niña preciosa 💛</h1>
+<div class="subtitle">UN DETALLITO MIENTRAS ESPERO AL VIERNES</div>
+<section class="garden" aria-label="Flores amarillas y blancas">
+<div class="stem"></div><div class="leaf one"></div><div class="leaf two"></div>
+<div class="flower yellow f1"><div class="petals"></div><div class="center"></div></div>
+<div class="flower white f2"><div class="petals"></div><div class="center"></div></div>
+<div class="flower yellow f3"><div class="petals"></div><div class="center"></div></div>
+<div class="flower white f4"><div class="petals"></div><div class="center"></div></div>
+<div class="flower yellow f5"><div class="petals"></div><div class="center"></div></div>
+</section>
+<div class="envelope-wrap">
+<p class="hint">Toca el sobre para abrir tu sorpresa 💌</p>
+<button class="envelope" id="envelope" type="button" aria-expanded="false" aria-label="Abrir carta">
+<div class="letter"><p>
+De mientras que no llega el viernes,<br>
+te doy esto ya.<br><br>
+El viernes lo completo como se merece.<br><br>
+<strong>Te amo muchísimo, mi niña preciosa ❤️</strong>
+</p></div>
+<div class="envelope-base"></div><div class="flap"></div><div class="seal">♥</div>
+</button>
+</div>
+<div class="footer"><span class="sparkle">✿</span> Un pequeño detalle hecho especialmente para ti <span class="sparkle">✿</span></div>
+</main>
+<script>
+(()=>{const envelope=document.getElementById("envelope");if(!envelope)return;
+envelope.addEventListener("click",()=>{const isOpen=envelope.classList.toggle("open");
+envelope.setAttribute("aria-expanded",String(isOpen));
+envelope.setAttribute("aria-label",isOpen?"Cerrar carta":"Abrir carta");});})();
+</script>
+</body>
+</html>
